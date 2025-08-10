@@ -1,0 +1,148 @@
+/* ------------------------- */
+/* --- Variabel & Global --- */
+/* ------------------------- */
+:root {
+    --bg-main: #212529;
+    --bg-screen: #343a40;
+    --bg-key-dark: #495057;
+    --bg-key-dark-hover: #6c757d;
+    --bg-key-operator: #fd7e14;
+    --bg-key-operator-hover: #ff9a40;
+    --bg-key-equal: #28a745;
+    --bg-key-equal-hover: #34c759;
+    --text-light: #f8f9fa;
+    --text-history: #adb5bd;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', 'Roboto', sans-serif;   display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: var(--bg-main);
+    box-shadow: 5px 6px 19px 6px rgba(0,0,0,1);
+-webkit-box-shadow: 5px 6px 19px 6px rgba(0,0,0,1);
+-moz-box-shadow: 5px 6px 19px 6px rgba(0,0,0,1);
+}
+
+
+/* -------------------------- */
+/* --- Kontainer & Layar --- */
+/* -------------------------- */
+.calculator-container {
+    width: 100%;
+    max-width: 360px;
+    background-color: var(--bg-main);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+}
+
+.calculator-screen {
+    background-color: var(--bg-screen);
+    color: var(--text-light);
+    padding: 24px 20px;
+    text-align: right;
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.history {
+    font-size: 1.2rem;
+    color: var(--text-history);
+    height: 30px;
+}
+
+.input {
+    font-size: 3rem;
+    font-weight: 600;
+}
+
+
+/* -------------------------- */
+/* --- Layout Tombol Grid --- */
+/* -------------------------- */
+.calculator-keys {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 2px; /* Memberi sedikit celah antar tombol */
+    background-color: #343a40; /* Warna celah */
+}
+
+
+/* -------------------------- */
+/* ------ Gaya Tombol ------- */
+/* -------------------------- */
+.key {
+    background-color: var(--bg-key-dark);
+    color: var(--text-light);
+    border: none;
+    font-size: 1.2rem;
+    padding: 20px 0;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.key:hover {
+    background-color: var(--bg-key-dark-hover);
+}
+
+.key:active {
+    transform: scale(0.97);
+}
+
+/* Gaya khusus untuk tombol angka */
+.key.number {
+    font-weight: 500;
+}
+
+/* Gaya khusus untuk tombol operator */
+.key.operator {
+    background-color: var(--bg-key-operator);
+    font-size: 1.5rem;
+}
+
+.key.operator:hover {
+    background-color: var(--bg-key-operator-hover);
+}
+
+/* Gaya khusus untuk tombol fungsi */
+.key.function {
+    background-color: #3e444a;
+}
+.key.function:hover {
+    background-color: var(--bg-key-dark-hover);
+}
+
+
+/* Gaya khusus untuk tombol sama dengan */
+.key.equal {
+    grid-column: span 1; /* Default, bisa diubah jika perlu layout lain */
+    background-color: var(--bg-key-equal);
+    font-size: 1.8rem;
+}
+
+.key.equal:hover {
+    background-color: var(--bg-key-equal-hover);
+}
+
+/* Gaya khusus untuk tombol clear */
+.key.clear {
+    color: #ff4d4d;
+}
+
